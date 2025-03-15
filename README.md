@@ -1,4 +1,4 @@
-# R Shiny Dashboard for CES 4.0_Asthma_California 📊  
+# R Shiny Dashboard for CES 4.0_Asthma_California  
 This R Shiny dashboard explores the relationship between CES 4.0, PM2.5, race, and county-level population in California in 2024.
 
 ## 🔗 Live Dashboard  
