@@ -136,13 +136,7 @@ ui <- dashboardPage(
 # Define Server
 server <- function(input, output, session) {
   
-  # Print working directory and list files for debugging
-  print(paste("Current Working Directory:", getwd()))
-  print("Files available in the working directory:")
-  print(list.files())
-  
- 
-  # Render Choropleth Map with Proper Sizing
+  # Render Choropleth Map 
   output$ces_map <- renderPlotly({
     p <- ggplot(ces_gis) +  
       geom_sf(aes(fill = mean_ces, 
@@ -156,16 +150,16 @@ server <- function(input, output, session) {
       scale_fill_viridis_c(direction = -1, name = "CES 4.0") +
       theme_minimal() +
       labs(title = "Choropleth Map of CES Score") +
-      coord_sf(expand = FALSE)  # Ensures aspect ratio is maintained
+      coord_sf(expand = FALSE) 
     
     ggplotly(p, tooltip = "text") %>%
       layout(
         autosize = FALSE,   
         width = 700,        
         height = 500,       
-        legend = list(orientation = "v", x = 1, y = 1)  # Ensure legend appears
+        legend = list(orientation = "v", x = 1, y = 1)  
       ) %>%
-      config(displayModeBar = FALSE)  # Hide plotly mode bar to avoid accidental edits
+      config(displayModeBar = FALSE)  
   })
   
   
@@ -182,7 +176,7 @@ server <- function(input, output, session) {
       geom_bar(stat = "identity") +
       theme_minimal() +
       labs(title = paste("Race Distribution in", input$county)) +
-      theme(axis.text.x = element_text(angle = 30, hjust = 1))  # Adjusted angle for clarity
+      theme(axis.text.x = element_text(angle = 30, hjust = 1))  
   })
   
   # PM2.5 vs. Asthma Bubble Chart
@@ -212,7 +206,7 @@ server <- function(input, output, session) {
           x = 1.05,  # Move legend to the right
           y = 0.5,  # Center it vertically
           font = list(size = 9),
-          traceorder = "reversed"  # Helps in managing long legends
+          traceorder = "reversed"  
         )
       )
   })
