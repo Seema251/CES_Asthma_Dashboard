@@ -1,1 +1,1 @@
-This folder contains sample datasets (CSV, RDS).
+This folder contains sample datasets (.RData, RDS).
