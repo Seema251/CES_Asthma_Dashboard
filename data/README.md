@@ -1,1 +1,1 @@
-This folder contains sample datasets (.RData, RDS).
+This folder contains datasets required for this dashboard script (.RData, RDS).
